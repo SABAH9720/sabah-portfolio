@@ -1,0 +1,123 @@
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0a192f;
+  color: #8892b0;
+  margin: 0;
+  scroll-behavior: smooth;
+  
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #0a192f;
+  color: #ccd6f6;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: #0a192f;
+  border-right: 1px solid #112240;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Main Content Styling */
+.main-content {
+  margin-left: 280px; /* pushes content to the right of sidebar */
+  width: calc(100% - 280px); /* dynamically fill remaining space */
+  padding: 2rem;
+}
+
+.main-content section {
+  margin-bottom: 4rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-sans);
+  color: #ccd6f6;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  color: #64ffda;
+}
+
+/* ---------------------------------- */
+/* 🌐 Responsive Layout */
+/* ---------------------------------- */
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #112240;
+    padding: 1rem;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Medium screens (tablet) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+    padding: 1.5rem;
+  }
+
+  .main-content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 1.5rem;
+  }
+}
+
+/* Smaller text for mobile */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .sidebar h1 {
+    font-size: 1.5rem;
+  }
+
+  .sidebar p,
+  .sidebar a {
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
